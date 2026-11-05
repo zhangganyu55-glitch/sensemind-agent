@@ -1,0 +1,123 @@
+{
+  "status": "done",
+  "transport": "real loopback HTTP + uvicorn + SQLite",
+  "wall_seconds_including_load": 603.5111045419999,
+  "paced_seconds": 600,
+  "summary": {
+    "device": "v07_stability_54726",
+    "ticks": 600,
+    "analyses": 593,
+    "subject": "S13",
+    "dataset": "ppg-dalia",
+    "source_start_seconds": 7708.75,
+    "acc_sampling_hz": 32,
+    "inference_step_seconds": 1,
+    "ecg_reference_input": false
+  },
+  "requests": {
+    "telemetry": 600,
+    "analyze": 593
+  },
+  "http_errors": [],
+  "max_request_latency_seconds": 0.59402883400071,
+  "models": {
+    "artifact_dir": "<repo>/artifacts",
+    "models": {
+      "activity": {
+        "available": true,
+        "version": "pamap2-rf-v0.6.0-20261030",
+        "error": null
+      },
+      "ppg_quality": {
+        "available": true,
+        "version": "ppg-dalia-rf-v0.6.0-20261031",
+        "error": null
+      },
+      "ppg_hr": {
+        "available": true,
+        "version": "ppg-dalia-rf-v0.6.0-20261031",
+        "error": null
+      }
+    },
+    "activity": {
+      "available": true,
+      "version": "pamap2-rf-v0.6.0-20261030",
+      "feature_version": "pamap2-wrist-acc-hr-v1",
+      "error": null
+    },
+    "ppg": {
+      "available": true,
+      "quality_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "hr_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "feature_version": "ppg-dalia-bvp-acc-v1",
+      "error": null
+    },
+    "limitations": [
+      "Experimental baselines only; not clinically validated.",
+      "Models are auxiliary evidence and never override safety rules."
+    ]
+  },
+  "runtime": {
+    "models": {
+      "artifact_dir": "<repo>/artifacts",
+      "models": {
+        "activity": {
+          "available": true,
+          "version": "pamap2-rf-v0.6.0-20261030",
+          "error": null
+        },
+        "ppg_quality": {
+          "available": true,
+          "version": "ppg-dalia-rf-v0.6.0-20261031",
+          "error": null
+        },
+        "ppg_hr": {
+          "available": true,
+          "version": "ppg-dalia-rf-v0.6.0-20261031",
+          "error": null
+        }
+      },
+      "activity": {
+        "available": true,
+        "version": "pamap2-rf-v0.6.0-20261030",
+        "feature_version": "pamap2-wrist-acc-hr-v1",
+        "error": null
+      },
+      "ppg": {
+        "available": true,
+        "quality_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "hr_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "feature_version": "ppg-dalia-bvp-acc-v1",
+        "error": null
+      },
+      "limitations": [
+        "Experimental baselines only; not clinically validated.",
+        "Models are auxiliary evidence and never override safety rules."
+      ]
+    },
+    "assistant": {
+      "enabled": false,
+      "mode": "off",
+      "model": null
+    },
+    "hardware_tested": false,
+    "modes": [
+      "live",
+      "replay"
+    ],
+    "note": "Configured API does not prove provider connectivity; no ESP32 acceptance yet."
+  },
+  "source_sha256": {
+    "guardian/models.py": "6105ef59a2f778335370f9a55a64ac075f424508102a802390c3c59d32cb9627",
+    "guardian/agent.py": "328dbbce50dfdf23d29a92e9f97fc36d87464f60c37f4a0819582f1830818e49",
+    "guardian/factory.py": "53d93726c13f8a07bdcaa05c74c2ee161fc5b9d1b80814594e6eb8c5a48d09cf",
+    "guardian/detection.py": "f7d19f093584e965ecd903c2f46365ae152ed6591cbbcbc0aac11e36240c69b1",
+    "guardian/console.py": "3676f4295595277c6efef5f39bd53b8c2d03376da0322304284609abbd2a82a1",
+    "guardian/ml/features.py": "eece10bb479283206ed6d4b12a1a3a1f3a21d055faeb7335bf5b394e7a339369",
+    "scripts/replay_dataset.py": "6e6605d4ba5bb441366a7294c55966851e0a8ca00081e9813bf03da80f67976f"
+  },
+  "source_snapshot_note": "Captured immediately after launching this run; verified unchanged at completion.",
+  "persisted_telemetry": 600,
+  "persisted_inferences": 593,
+  "hr_output_ticks": 546
+}

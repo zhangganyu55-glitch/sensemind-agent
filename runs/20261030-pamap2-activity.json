@@ -1,0 +1,51 @@
+{
+  "run_id": "20261030-pamap2-activity",
+  "agent": "claude",
+  "task_id": "T3-predecessor",
+  "git_commit": null,
+  "started_at": "2026-10-30T06:06:21Z",
+  "finished_at": "2026-10-30T06:06:21Z",
+  "status": "done",
+  "command": ".venv/bin/python scripts/train_activity.py",
+  "dataset": "PAMAP2",
+  "dataset_path": "data/raw/PAMAP2_Dataset",
+  "config": {
+    "model": "RandomForestClassifier",
+    "seed": 42,
+    "window_samples": 512,
+    "sampling_hz": 100.0,
+    "feature_version": "pamap2-wrist-acc-hr-v1",
+    "feature_count": 58
+  },
+  "split": {
+    "train_subjects": ["101", "102", "103", "104", "108", "109"],
+    "val_subjects": ["107"],
+    "test_subjects": ["105", "106"],
+    "train_windows": 4526,
+    "val_windows": 886,
+    "test_windows": 1990
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/activity/activity_rf.joblib",
+      "sha256": "88015f892d6fd74284dd644083275ee81437dfac35a9911c4546f7398b325cb8"
+    },
+    {
+      "path": "artifacts/activity/activity_metadata.json",
+      "sha256": "b925fa6ac159c5ff7869fd83ed80b2c9a4375886bf4830ca5e2bdcce10a542d9"
+    },
+    {
+      "path": "artifacts/activity/activity_metadata.joblib",
+      "sha256": "685014adab51d4bb534882c4068a550df5aa2949603d52e06835a3f626d34f6f"
+    }
+  ],
+  "metrics": {
+    "test_accuracy": 0.750251256281407,
+    "test_macro_f1": 0.7393793517363357,
+    "test_weighted_f1": 0.7413864934523239,
+    "val_accuracy": 0.6828442437923251,
+    "val_macro_f1": 0.6121892660897054,
+    "majority_baseline_accuracy": 0.11155778894472362
+  },
+  "notes": "PAMAP2 wrist ACC; walking recall 0.21 weak; research prototype, not a clinical device."
+}

@@ -1,0 +1,125 @@
+{
+  "run_id": "agent2-deepseek-20261031082840",
+  "status": "completed",
+  "ai_status": "completed",
+  "ai_error": null,
+  "model": "deepseek-flash",
+  "duration_seconds": 6.54,
+  "synthetic_fixture": true,
+  "event": {
+    "id": "20bb820b-51ac-4f16-b293-c119ca4bf080",
+    "kind": "high_heart_rate",
+    "device_id": "guardian_001"
+  },
+  "evidence_count": 13,
+  "evidence_refs": [
+    "ev_9a2dd7c99fa04879a6f16a0eeb4524d8",
+    "ev_5b91c2e2955f4562b836302b9162d55c",
+    "ev_e261fceeff5c4290857af3c781c639ce",
+    "ev_8619dbd1fc74484088cb6277020188ff",
+    "ev_6dd93ccca47544b5a5dfeaf02a166a1b",
+    "ev_b496b805b88747cca7949d42e56b71e9",
+    "ev_7c8bb12153564571b99eadf7dc4871ed",
+    "ev_cc5129c60b0847d09fa4df91d60df472",
+    "ev_c6d83ba0c5544469988f8154247a4599",
+    "ev_cf6889e7eaf84e1ebfff2d340a66a135",
+    "ev_f3c903a9a861412e994ffff46cfc756f",
+    "ev_2a117ae3866d4adba157ebac53eb300e",
+    "ev_cd64d0209e0a4608adb63dc2cdab9cd2"
+  ],
+  "structured": {
+    "event_id": "20bb820b-51ac-4f16-b293-c119ca4bf080",
+    "investigation_status": "inconclusive",
+    "observations": [
+      {
+        "text": "窗口内4条心率估计均为135 bpm，信号质量good、reading_valid为真，事件由高心率规则触发。",
+        "evidence_refs": [
+          "ev_9a2dd7c99fa04879a6f16a0eeb4524d8",
+          "ev_8619dbd1fc74484088cb6277020188ff",
+          "ev_7c8bb12153564571b99eadf7dc4871ed",
+          "ev_cf6889e7eaf84e1ebfff2d340a66a135"
+        ]
+      },
+      {
+        "text": "4条IMU读数完全相同（2.5,1.0,1.5 g），加速度模长约3.08 g，呈恒定值，更像回放/模拟数据而非真实运动。",
+        "evidence_refs": [
+          "ev_e261fceeff5c4290857af3c781c639ce",
+          "ev_b496b805b88747cca7949d42e56b71e9",
+          "ev_c6d83ba0c5544469988f8154247a4599",
+          "ev_2a117ae3866d4adba157ebac53eb300e"
+        ]
+      },
+      {
+        "text": "数据模式为replay、来源simulator，事件备注标明为合成验证夹具，非真实人员。",
+        "evidence_refs": [
+          "ev_cd64d0209e0a4608adb63dc2cdab9cd2",
+          "ev_f3c903a9a861412e994ffff46cfc756f"
+        ]
+      },
+      {
+        "text": "时间同步为gateway_estimated，时钟不确定度约1000 ms，事件开启时间晚于最后样本约17秒。",
+        "evidence_refs": [
+          "ev_cf6889e7eaf84e1ebfff2d340a66a135",
+          "ev_cd64d0209e0a4608adb63dc2cdab9cd2"
+        ]
+      }
+    ],
+    "evidence_refs": [
+      "ev_9a2dd7c99fa04879a6f16a0eeb4524d8",
+      "ev_8619dbd1fc74484088cb6277020188ff",
+      "ev_7c8bb12153564571b99eadf7dc4871ed",
+      "ev_cf6889e7eaf84e1ebfff2d340a66a135",
+      "ev_e261fceeff5c4290857af3c781c639ce",
+      "ev_b496b805b88747cca7949d42e56b71e9",
+      "ev_c6d83ba0c5544469988f8154247a4599",
+      "ev_2a117ae3866d4adba157ebac53eb300e",
+      "ev_cd64d0209e0a4608adb63dc2cdab9cd2",
+      "ev_f3c903a9a861412e994ffff46cfc756f"
+    ],
+    "uncertainties": [
+      "数据为replay/simulator合成夹具，无法代表真实生理状态",
+      "无原始PPG、活动、呼吸率、雷达数据，无法交叉验证心率来源",
+      "IMU恒定值提示可能为静态或模拟输入，无法判断体动影响"
+    ],
+    "conflicting_evidence": [
+      "心率135 bpm偏高，但IMU恒定且无活动数据，无法区分真实升高与模拟/伪差"
+    ],
+    "missing_data": [
+      "原始PPG波形",
+      "活动/体动分类",
+      "呼吸率",
+      "历史同类事件",
+      "设备端状态字段"
+    ],
+    "conclusion": "该事件由回放模拟数据中的恒定135 bpm心率触发，信号质量标记良好但数据为合成夹具且缺乏PPG与活动佐证，无法确认真实生理意义，调查结论为不确定。",
+    "recommended_action": [
+      "核对设备数据模式与来源，确认是否为回放/模拟输入",
+      "人工复核原始PPG与体动记录（若可获取）",
+      "补充真实采集数据后重新评估",
+      "如为真实设备，联系专业人员复核"
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 8348,
+    "completion_tokens": 910,
+    "total_tokens": 9258
+  },
+  "transitions": [
+    {
+      "from": "queued",
+      "to": "running",
+      "reason": "worker_started"
+    },
+    {
+      "from": "running",
+      "to": "completed",
+      "reason": "worker_finished"
+    }
+  ],
+  "fallback_used": false,
+  "notes": [
+    "Synthetic waveform and synthetic telemetry only; no real person or dataset signal was sent.",
+    "Research prototype; not a diagnosis, seizure detector or emergency service.",
+    "The model could only reference evidence ids supplied by the server."
+  ]
+}

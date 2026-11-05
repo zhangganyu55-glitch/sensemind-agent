@@ -1,0 +1,437 @@
+{
+  "data_policy": "Only generated fictional records; no PPG-DaLiA, ECG, real device or personal health records sent.",
+  "model": "deepseek-flash",
+  "real_provider": true,
+  "synthetic_model_fixture": {
+    "origin": "Generated 1.2 Hz sinusoid + seeded synthetic wrist ACC; real trained weights, no personal measurements.",
+    "signal": {
+      "available": true,
+      "reliability": 0.8454,
+      "anomaly_score": 0.1546,
+      "estimated_hr": 69.91,
+      "hr_available": true,
+      "degraded_reason": null,
+      "quality_target": "HR agreement proxy, not medical SQI",
+      "ppg_hr": 72.45,
+      "beat_count": 10,
+      "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "feature_version": "ppg-dalia-bvp-acc-v1",
+      "input_samples": 512
+    }
+  },
+  "assistant": {
+    "agent_mode": "llm_tool_agent",
+    "model": "deepseek-flash",
+    "usage": {
+      "prompt_tokens": 4626,
+      "completion_tokens": 583,
+      "total_tokens": 5209
+    },
+    "llm_error": null,
+    "response": "已查询 1 条研究模型记录。PPG 心率估计：69.91 bpm；活动标签：None；信号一致性代理：0.8454。缺测或低质量不代表正常；异常评分不能解释为疾病诊断或发作概率。详情见返回数据。",
+    "tools": [
+      "summarize_status",
+      "get_model_outputs",
+      "get_history"
+    ],
+    "elapsed_seconds": 5.600395166999078
+  },
+  "investigation": {
+    "status": "completed",
+    "ai_status": "completed",
+    "error": null,
+    "analysis_source": "ai",
+    "tools": [
+      "get_event",
+      "get_latest",
+      "get_window",
+      "get_quality",
+      "get_sensor_intelligence",
+      "find_similar_events",
+      "get_sensor_intelligence",
+      "get_history"
+    ],
+    "human_acknowledged": false,
+    "evidence_report": {
+      "event": {
+        "id": "fc80da4e-15c8-4c28-a5ae-8104a00d35bd",
+        "device_id": "fictional_v07",
+        "kind": "high_heart_rate",
+        "status": "active",
+        "opened_at": "2026-10-31T07:02:41.017006+00:00",
+        "closed_at": null,
+        "acknowledged": false,
+        "note": "DEMO ONLY: unvalidated signal rule; investigate source/quality; not diagnosis",
+        "acknowledged_at": null,
+        "acknowledged_by": null,
+        "notification_status": "pending",
+        "notification_attempts": 0,
+        "last_notification_at": "2026-10-31T07:02:54.213091+00:00",
+        "last_notification_error": null
+      },
+      "device_id": "fictional_v07",
+      "event_time": "2026-10-31T07:02:41.017006+00:00",
+      "event_kind": "high_heart_rate",
+      "event_status": "active",
+      "event_duration_seconds": 28.7,
+      "event_duration_state": "active",
+      "trigger_rule": "experimental_threshold_rules",
+      "trend": {
+        "status": "descriptive",
+        "heart_rate": {
+          "first_median": 102.5,
+          "second_median": 130.0,
+          "direction": "up"
+        },
+        "spo2": {
+          "first_median": null,
+          "second_median": null,
+          "direction": "unknown"
+        },
+        "basis": "窗口前后半段中位数的描述性比较，不是医学趋势判断"
+      },
+      "sources": [
+        "simulator"
+      ],
+      "data_quality": {
+        "window_minutes": 5,
+        "sample_count": 4,
+        "quality_counts": {
+          "good": 4
+        },
+        "reading_valid_count": 4,
+        "missing_heart_rate": 0,
+        "missing_spo2": 4,
+        "sources": [
+          "simulator"
+        ],
+        "latest_timestamp": "2026-10-31T07:02:41.017006Z",
+        "stale": false,
+        "age_seconds": 20.811224,
+        "clock_skew": false
+      },
+      "facts": [
+        {
+          "text": "规则引擎于 2026-10-31T07:02:41.017006+00:00 为设备 fictional_v07 创建 high_heart_rate 事件；当前状态 active。",
+          "evidence": {
+            "event_id": "fc80da4e-15c8-4c28-a5ae-8104a00d35bd",
+            "source": "rule_engine"
+          }
+        },
+        {
+          "text": "最新遥测时间 2026-10-31T07:02:41.017006Z，来源 simulator，心率 130.0，血氧 None，信号质量 good，reading_valid=True，sampling_status=None。",
+          "evidence": {
+            "tool": "get_latest"
+          }
+        },
+        {
+          "text": "事件前 5 分钟、事件后 1 分钟的窗口内共 4 条遥测；心率样本 4 条（最小 75.0，中位 130.0，最大 130.0），血氧样本 0 条（最小 None，中位 None，最大 None）；同时含两项的样本 0 条；没有三轴加速度数据。",
+          "evidence": {
+            "tool": "get_window",
+            "from": "2026-10-31T06:57:41.017006+00:00",
+            "to": "2026-10-31T07:03:41.017006+00:00"
+          }
+        },
+        {
+          "text": "质量统计 good=4，poor=0，unknown=0，invalid=0；最新数据年龄 20.811224 秒，stale=False，clock_skew=False。",
+          "evidence": {
+            "tool": "get_quality"
+          }
+        },
+        {
+          "text": "过去 24 小时同一设备同类事件 0 次。",
+          "evidence": {
+            "tool": "find_similar_events"
+          }
+        },
+        {
+          "text": "事件已持续 29 秒（调查时状态：活动）。",
+          "evidence": {
+            "event_id": "fc80da4e-15c8-4c28-a5ae-8104a00d35bd"
+          }
+        },
+        {
+          "text": "窗口样本前半段→后半段心率中位数 102.5 → 130.0（上升），血氧中位数 None → None（无法比较）。这是描述性统计，不是医学趋势判断。",
+          "evidence": {
+            "tool": "get_window",
+            "basis": "窗口前后半段中位数的描述性比较，不是医学趋势判断"
+          }
+        }
+      ],
+      "rule_findings": [
+        {
+          "text": "DEMO ONLY: unvalidated signal rule; investigate source/quality; not diagnosis",
+          "evidence": {
+            "rule": "experimental_threshold_rules",
+            "not_medical": true
+          }
+        }
+      ],
+      "ai_status": "completed",
+      "ai_error": null,
+      "analysis_source": "ai",
+      "model": "deepseek-flash",
+      "ai_usage": {
+        "prompt_tokens": 4556,
+        "completion_tokens": 977,
+        "total_tokens": 5533
+      },
+      "ai_inferences": [
+        "事件 fc80da4e 于 2026-10-31T07:02:41Z 由规则引擎以 high_heart_rate 类型开启，状态为 active、未确认，通知状态为 pending，且通知尝试次数为 0。",
+        "可验证的传感器事实：窗口内共 4 条样本，来源均为 simulator，data_mode 为 replay，signal_quality 均为 good，reading_valid 均为 true；心率依次为 75、130、130、130 bpm，时间跨度为 07:02:38 至 07:02:41Z。",
+        "可验证的传感器事实：窗口内没有 SpO2 样本（missing_spo2=4），也没有加速度或陀螺仪数据，因此无法用运动数据解释或排除心率升高。",
+        "规则引擎的补充判断（sensor intelligence，模型 ppg-dalia-rf-v0.6.0-20261031）：信号可靠性为 0.8454，anomaly_score 为 0.1546，估计心率为 69.91 bpm，PPG 心率为 72.45 bpm，beat_count 为 10，input_samples 为 512。",
+        "规则引擎的估计心率（约 70–72 bpm）与事件窗口内上报的 130 bpm 明显不一致，提示上报的 130 bpm 可能来自异常或回放数据，而非稳定的生理读数。",
+        "过去 24 小时内相似事件数为 0，说明这是该设备近期首次出现此类事件。",
+        "数据时效性正常：最新样本距查询约 20.8 秒，stale=false，clock_skew=false。"
+      ],
+      "uncertainties": [
+        "数据来源为 simulator 且 data_mode 为 replay，属于合成或回放数据，不能代表真实佩戴者的生理状态。",
+        "窗口内只有 4 条样本，且集中在 3 秒内，无法判断 130 bpm 是持续趋势还是单点跳变；75→130 的跳变缺少中间过渡样本。",
+        "缺少 SpO2、加速度、陀螺仪和 device_status，无法评估活动状态、体位、佩戴贴合度或设备故障。",
+        "规则引擎估计心率与上报心率不一致的原因不明，可能是信号处理窗口不同、回放数据错位或上报值异常，现有证据不足以判定。",
+        "signal_quality=good 是设备自报字段，未经过独立验证；sensor intelligence 的 quality_target 明确说明它是 HR agreement proxy，不是医疗级 SQI。",
+        "无法确认该事件是否对应真实人员，也无法确认是否需要临床关注。"
+      ],
+      "recommended_actions": [
+        "核对设备 fictional_v07 的数据源配置，确认 simulator/replay 模式是否为预期状态，排除回放数据误触发规则的可能。",
+        "人工查看该设备在 07:02:38–07:02:41Z 前后的原始 PPG 波形与设备日志，核实 130 bpm 是否为真实读数。",
+        "检查设备佩戴状态与传感器贴合度，并确认 SpO2 与运动传感器为何缺失。",
+        "若确认为真实佩戴者且心率持续偏高，建议联系专业医护人员进行人工评估，不要依赖本系统结论。",
+        "在事件未确认前保持事件为 active 状态，由人工完成确认或关闭，本 Agent 不执行任何事件状态变更。"
+      ],
+      "ai_narrative": "规则引擎在 2026-10-31T07:02:41Z 为设备 fictional_v07 开启了 high_heart_rate 事件，当前状态为 active、未确认，通知尚未发出。可验证的传感器事实是：窗口内 4 条样本全部来自 simulator 的 replay 数据，质量标记为 good，心率在 07:02:38 为 75 bpm，随后三条为 130 bpm；SpO2 与运动数据完全缺失。补充的规则引擎判断显示，信号可靠性约 0.85，但其估计心率仅约 70–72 bpm，与上报的 130 bpm 明显不符，这使 130 bpm 的可信度存疑。过去 24 小时无相似事件。综合来看，这更像是一次需要人工核实的设备或数据质量问题，而非已确认的生理异常；本系统不做出诊断，也不发出报警，建议先核对数据源与原始波形，必要时由专业人员评估。",
+      "model_evidence": {
+        "device_id": "fictional_v07",
+        "window_start": "2026-10-31T07:02:38.017006+00:00",
+        "dataset": "synthetic",
+        "participant_id": "fictional",
+        "activity_label": null,
+        "signal_reliability": 0.8454,
+        "signal": {
+          "available": true,
+          "reliability": 0.8454,
+          "anomaly_score": 0.1546,
+          "estimated_hr": 69.91,
+          "hr_available": true,
+          "degraded_reason": null,
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 72.45,
+          "beat_count": 10,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "inference_id": "96a59d70-f5a9-40a0-b14b-cef1794831cd",
+        "stored_at": "2026-10-31T07:02:48.581471+00:00"
+      },
+      "key_history": [
+        {
+          "timestamp": "2026-10-31T07:02:38.017006Z",
+          "source": "simulator",
+          "heart_rate": 75.0,
+          "spo2": null,
+          "signal_quality": "good",
+          "reading_valid": true
+        },
+        {
+          "timestamp": "2026-10-31T07:02:39.017006Z",
+          "source": "simulator",
+          "heart_rate": 130.0,
+          "spo2": null,
+          "signal_quality": "good",
+          "reading_valid": true
+        },
+        {
+          "timestamp": "2026-10-31T07:02:40.017006Z",
+          "source": "simulator",
+          "heart_rate": 130.0,
+          "spo2": null,
+          "signal_quality": "good",
+          "reading_valid": true
+        },
+        {
+          "timestamp": "2026-10-31T07:02:41.017006Z",
+          "source": "simulator",
+          "heart_rate": 130.0,
+          "spo2": null,
+          "signal_quality": "good",
+          "reading_valid": true
+        }
+      ],
+      "tool_calls": [
+        {
+          "tool": "get_event",
+          "arguments": {},
+          "actor": "system",
+          "at": "2026-10-31T07:03:01.826658+00:00",
+          "duration_ms": 0.0,
+          "result": {
+            "id": "fc80da4e-15c8-4c28-a5ae-8104a00d35bd",
+            "device_id": "fictional_v07",
+            "kind": "high_heart_rate",
+            "status": "active",
+            "opened_at": "2026-10-31T07:02:41.017006+00:00"
+          }
+        },
+        {
+          "tool": "get_latest",
+          "arguments": {},
+          "actor": "system",
+          "at": "2026-10-31T07:03:01.826922+00:00",
+          "duration_ms": 0.2,
+          "result": {
+            "timestamp": "2026-10-31T07:02:41.017006Z",
+            "source": "simulator",
+            "heart_rate": 130.0,
+            "spo2": null,
+            "signal_quality": "good",
+            "reading_valid": true
+          }
+        },
+        {
+          "tool": "get_window",
+          "arguments": {
+            "before_minutes": 5,
+            "after_minutes": 1
+          },
+          "actor": "system",
+          "at": "2026-10-31T07:03:01.827205+00:00",
+          "duration_ms": 0.3,
+          "result": {
+            "count": 4,
+            "heart_rate": {
+              "count": 4,
+              "min": 75.0,
+              "median": 130.0,
+              "max": 130.0
+            },
+            "spo2": {
+              "count": 0,
+              "min": null,
+              "median": null,
+              "max": null
+            },
+            "acceleration": {
+              "count": 0,
+              "max_magnitude": null,
+              "with_physiology": 0
+            },
+            "quality_counts": {
+              "good": 4
+            },
+            "sources": [
+              "simulator"
+            ],
+            "both_hr_spo2_samples": 0,
+            "first": "2026-10-31T07:02:38.017006Z",
+            "last": "2026-10-31T07:02:41.017006Z"
+          }
+        },
+        {
+          "tool": "get_quality",
+          "arguments": {
+            "before_minutes": 5
+          },
+          "actor": "system",
+          "at": "2026-10-31T07:03:01.828546+00:00",
+          "duration_ms": 1.3,
+          "result": {
+            "window_minutes": 5,
+            "sample_count": 4,
+            "quality_counts": {
+              "good": 4
+            },
+            "reading_valid_count": 4,
+            "missing_heart_rate": 0,
+            "missing_spo2": 4,
+            "sources": [
+              "simulator"
+            ],
+            "latest_timestamp": "2026-10-31T07:02:41.017006Z",
+            "stale": false,
+            "age_seconds": 20.811224,
+            "clock_skew": false
+          }
+        },
+        {
+          "tool": "get_sensor_intelligence",
+          "arguments": {},
+          "actor": "system",
+          "at": "2026-10-31T07:03:01.828808+00:00",
+          "duration_ms": 0.3,
+          "result": {
+            "available": null,
+            "activity_label": null,
+            "activity_confidence": null,
+            "signal_reliability": 0.8454,
+            "anomaly_score": null,
+            "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+            "window_start": "2026-10-31T07:02:38.017006+00:00",
+            "window_end": null,
+            "dataset": "synthetic",
+            "participant_id": "fictional"
+          }
+        },
+        {
+          "tool": "find_similar_events",
+          "arguments": {
+            "hours": 24
+          },
+          "actor": "system",
+          "at": "2026-10-31T07:03:01.829066+00:00",
+          "duration_ms": 0.3,
+          "result": {
+            "hours": 24,
+            "count": 0,
+            "events": []
+          }
+        },
+        {
+          "tool": "get_sensor_intelligence",
+          "arguments": {},
+          "actor": "agent",
+          "at": "2026-10-31T07:03:03.149941+00:00",
+          "duration_ms": 1.4,
+          "result": {
+            "available": null,
+            "activity_label": null,
+            "activity_confidence": null,
+            "signal_reliability": 0.8454,
+            "anomaly_score": null,
+            "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+            "window_start": "2026-10-31T07:02:38.017006+00:00",
+            "window_end": null,
+            "dataset": "synthetic",
+            "participant_id": "fictional"
+          }
+        },
+        {
+          "tool": "get_history",
+          "arguments": {
+            "limit": 30
+          },
+          "actor": "agent",
+          "at": "2026-10-31T07:03:03.151019+00:00",
+          "duration_ms": 1.0,
+          "result": {
+            "count": 4,
+            "first": "2026-10-31T07:02:38.017006Z",
+            "last": "2026-10-31T07:02:41.017006Z"
+          }
+        }
+      ],
+      "limitations": [
+        "实验性安全辅助原型，不是医疗器械，不具备经临床验证的癫痫发作识别能力。",
+        "规则阈值为演示用软件数字，不是医学阈值；事件只表示规则条件满足。",
+        "传感器未做临床标定；心率、血氧等数值只能作为原型数据看待。",
+        "AI 分析只基于本次工具读取到的有限样本，不能替代人工判断或紧急救援。"
+      ],
+      "generated_at": "2026-10-31T07:03:09.674909+00:00"
+    }
+  },
+  "status": "done"
+}

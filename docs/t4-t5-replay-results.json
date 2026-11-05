@@ -1,0 +1,371 @@
+{
+  "transport": "FastAPI TestClient (in-process HTTP, real SQLite and models)",
+  "runs": [
+    {
+      "device": "replay_S13_1",
+      "ticks": 20,
+      "analyses": 13,
+      "subject": "S13",
+      "dataset": "ppg-dalia",
+      "source_start_seconds": 68.75,
+      "acc_sampling_hz": 32,
+      "inference_step_seconds": 1,
+      "ecg_reference_input": false,
+      "degraded": 4,
+      "first_response": {
+        "device_id": "replay_S13_1",
+        "window_start": "2026-10-31T08:29:26.506124+00:00",
+        "window_end": "2026-10-31T08:29:34.506124+00:00",
+        "dataset": "ppg-dalia",
+        "participant_id": "S13",
+        "sampling_hz": 64.0,
+        "activity": {
+          "available": false,
+          "reason": "unsupported_activity_domain"
+        },
+        "signal": {
+          "available": true,
+          "reliability": 0.621,
+          "anomaly_score": 0.379,
+          "estimated_hr": null,
+          "hr_available": false,
+          "degraded_reason": "low_proxy_reliability",
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 69.82,
+          "beat_count": 9,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "activity_label": null,
+        "activity_confidence": null,
+        "signal_reliability": 0.621,
+        "anomaly_score": 0.379,
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "available": true,
+        "limitations": [
+          "Experimental model output; not a diagnosis or safety guarantee.",
+          "Activity model trained on PAMAP2; PPG quality trained on PPG-DaLiA proxy labels.",
+          "Input sampling and hardware must match the dataset assumptions."
+        ],
+        "created_at": "2026-10-31T08:29:46.887489+00:00"
+      },
+      "agent_tool": "get_model_outputs",
+      "stored_inferences": 13
+    },
+    {
+      "device": "replay_S13_7",
+      "ticks": 20,
+      "analyses": 13,
+      "subject": "S13",
+      "dataset": "ppg-dalia",
+      "source_start_seconds": 6669.75,
+      "acc_sampling_hz": 32,
+      "inference_step_seconds": 1,
+      "ecg_reference_input": false,
+      "degraded": 13,
+      "first_response": {
+        "device_id": "replay_S13_7",
+        "window_start": "2026-10-31T08:29:27.487817+00:00",
+        "window_end": "2026-10-31T08:29:35.487817+00:00",
+        "dataset": "ppg-dalia",
+        "participant_id": "S13",
+        "sampling_hz": 64.0,
+        "activity": {
+          "available": false,
+          "reason": "unsupported_activity_domain"
+        },
+        "signal": {
+          "available": true,
+          "reliability": 0.6873,
+          "anomaly_score": 0.3127,
+          "estimated_hr": null,
+          "hr_available": false,
+          "degraded_reason": "low_proxy_reliability",
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 89.3,
+          "beat_count": 13,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "activity_label": null,
+        "activity_confidence": null,
+        "signal_reliability": 0.6873,
+        "anomaly_score": 0.3127,
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "available": true,
+        "limitations": [
+          "Experimental model output; not a diagnosis or safety guarantee.",
+          "Activity model trained on PAMAP2; PPG quality trained on PPG-DaLiA proxy labels.",
+          "Input sampling and hardware must match the dataset assumptions."
+        ],
+        "created_at": "2026-10-31T08:29:47.573486+00:00"
+      },
+      "agent_tool": "get_model_outputs",
+      "stored_inferences": 13
+    },
+    {
+      "device": "replay_S14_1",
+      "ticks": 20,
+      "analyses": 13,
+      "subject": "S14",
+      "dataset": "ppg-dalia",
+      "source_start_seconds": 62.0,
+      "acc_sampling_hz": 32,
+      "inference_step_seconds": 1,
+      "ecg_reference_input": false,
+      "degraded": 2,
+      "first_response": {
+        "device_id": "replay_S14_1",
+        "window_start": "2026-10-31T08:29:32.503356+00:00",
+        "window_end": "2026-10-31T08:29:40.503356+00:00",
+        "dataset": "ppg-dalia",
+        "participant_id": "S14",
+        "sampling_hz": 64.0,
+        "activity": {
+          "available": false,
+          "reason": "unsupported_activity_domain"
+        },
+        "signal": {
+          "available": true,
+          "reliability": 0.7268,
+          "anomaly_score": 0.2732,
+          "estimated_hr": 73.82,
+          "hr_available": true,
+          "degraded_reason": null,
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 72.45,
+          "beat_count": 11,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "activity_label": null,
+        "activity_confidence": null,
+        "signal_reliability": 0.7268,
+        "anomaly_score": 0.2732,
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "available": true,
+        "limitations": [
+          "Experimental model output; not a diagnosis or safety guarantee.",
+          "Activity model trained on PAMAP2; PPG quality trained on PPG-DaLiA proxy labels.",
+          "Input sampling and hardware must match the dataset assumptions."
+        ],
+        "created_at": "2026-10-31T08:29:52.651093+00:00"
+      },
+      "agent_tool": "get_model_outputs",
+      "stored_inferences": 13
+    },
+    {
+      "device": "replay_S14_7",
+      "ticks": 20,
+      "analyses": 13,
+      "subject": "S14",
+      "dataset": "ppg-dalia",
+      "source_start_seconds": 6465.0,
+      "acc_sampling_hz": 32,
+      "inference_step_seconds": 1,
+      "ecg_reference_input": false,
+      "degraded": 13,
+      "first_response": {
+        "device_id": "replay_S14_7",
+        "window_start": "2026-10-31T08:29:33.348093+00:00",
+        "window_end": "2026-10-31T08:29:41.348093+00:00",
+        "dataset": "ppg-dalia",
+        "participant_id": "S14",
+        "sampling_hz": 64.0,
+        "activity": {
+          "available": false,
+          "reason": "unsupported_activity_domain"
+        },
+        "signal": {
+          "available": true,
+          "reliability": 0.5998,
+          "anomaly_score": 0.4002,
+          "estimated_hr": null,
+          "hr_available": false,
+          "degraded_reason": "low_proxy_reliability",
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 92.53,
+          "beat_count": 13,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "activity_label": null,
+        "activity_confidence": null,
+        "signal_reliability": 0.5998,
+        "anomaly_score": 0.4002,
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "available": true,
+        "limitations": [
+          "Experimental model output; not a diagnosis or safety guarantee.",
+          "Activity model trained on PAMAP2; PPG quality trained on PPG-DaLiA proxy labels.",
+          "Input sampling and hardware must match the dataset assumptions."
+        ],
+        "created_at": "2026-10-31T08:29:53.427581+00:00"
+      },
+      "agent_tool": "get_model_outputs",
+      "stored_inferences": 13
+    },
+    {
+      "device": "replay_S15_1",
+      "ticks": 20,
+      "analyses": 13,
+      "subject": "S15",
+      "dataset": "ppg-dalia",
+      "source_start_seconds": 51.5,
+      "acc_sampling_hz": 32,
+      "inference_step_seconds": 1,
+      "ecg_reference_input": false,
+      "degraded": 1,
+      "first_response": {
+        "device_id": "replay_S15_1",
+        "window_start": "2026-10-31T08:29:37.473710+00:00",
+        "window_end": "2026-10-31T08:29:45.473710+00:00",
+        "dataset": "ppg-dalia",
+        "participant_id": "S15",
+        "sampling_hz": 64.0,
+        "activity": {
+          "available": false,
+          "reason": "unsupported_activity_domain"
+        },
+        "signal": {
+          "available": true,
+          "reliability": 0.6299,
+          "anomaly_score": 0.3701,
+          "estimated_hr": null,
+          "hr_available": false,
+          "degraded_reason": "low_proxy_reliability",
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 73.85,
+          "beat_count": 9,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "activity_label": null,
+        "activity_confidence": null,
+        "signal_reliability": 0.6299,
+        "anomaly_score": 0.3701,
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "available": true,
+        "limitations": [
+          "Experimental model output; not a diagnosis or safety guarantee.",
+          "Activity model trained on PAMAP2; PPG quality trained on PPG-DaLiA proxy labels.",
+          "Input sampling and hardware must match the dataset assumptions."
+        ],
+        "created_at": "2026-10-31T08:29:57.602302+00:00"
+      },
+      "agent_tool": "get_model_outputs",
+      "stored_inferences": 13
+    },
+    {
+      "device": "replay_S15_7",
+      "ticks": 20,
+      "analyses": 13,
+      "subject": "S15",
+      "dataset": "ppg-dalia",
+      "source_start_seconds": 5638.5,
+      "acc_sampling_hz": 32,
+      "inference_step_seconds": 1,
+      "ecg_reference_input": false,
+      "degraded": 13,
+      "first_response": {
+        "device_id": "replay_S15_7",
+        "window_start": "2026-10-31T08:29:38.354048+00:00",
+        "window_end": "2026-10-31T08:29:46.354048+00:00",
+        "dataset": "ppg-dalia",
+        "participant_id": "S15",
+        "sampling_hz": 64.0,
+        "activity": {
+          "available": false,
+          "reason": "unsupported_activity_domain"
+        },
+        "signal": {
+          "available": true,
+          "reliability": 0.6088,
+          "anomaly_score": 0.3912,
+          "estimated_hr": null,
+          "hr_available": false,
+          "degraded_reason": "low_proxy_reliability",
+          "quality_target": "HR agreement proxy, not medical SQI",
+          "ppg_hr": 83.48,
+          "beat_count": 12,
+          "quality_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "hr_model_version": "ppg-dalia-rf-v0.6.0-20261031",
+          "feature_version": "ppg-dalia-bvp-acc-v1",
+          "input_samples": 512
+        },
+        "activity_label": null,
+        "activity_confidence": null,
+        "signal_reliability": 0.6088,
+        "anomaly_score": 0.3912,
+        "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+        "available": true,
+        "limitations": [
+          "Experimental model output; not a diagnosis or safety guarantee.",
+          "Activity model trained on PAMAP2; PPG quality trained on PPG-DaLiA proxy labels.",
+          "Input sampling and hardware must match the dataset assumptions."
+        ],
+        "created_at": "2026-10-31T08:29:58.428926+00:00"
+      },
+      "agent_tool": "get_model_outputs",
+      "stored_inferences": 13
+    }
+  ],
+  "status": {
+    "artifact_dir": "<repo>/artifacts",
+    "models": {
+      "activity": {
+        "available": true,
+        "version": "pamap2-rf-v0.6.0-20261030",
+        "error": null
+      },
+      "ppg_quality": {
+        "available": true,
+        "version": "ppg-dalia-rf-v0.6.0-20261031",
+        "error": null
+      },
+      "ppg_hr": {
+        "available": true,
+        "version": "ppg-dalia-rf-v0.6.0-20261031",
+        "error": null
+      }
+    },
+    "activity": {
+      "available": true,
+      "version": "pamap2-rf-v0.6.0-20261030",
+      "feature_version": "pamap2-wrist-acc-hr-v1",
+      "error": null
+    },
+    "ppg": {
+      "available": true,
+      "quality_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "hr_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "feature_version": "ppg-dalia-bvp-acc-v1",
+      "error": null
+    },
+    "limitations": [
+      "Experimental baselines only; not clinically validated.",
+      "Models are auxiliary evidence and never override safety rules."
+    ]
+  },
+  "activity_replay": {
+    "device": "replay_pamap2_105",
+    "ticks": 12,
+    "analyses": 7,
+    "activities": {
+      "standing": 6,
+      "ascending_stairs": 1
+    },
+    "subject": "105",
+    "dataset": "pamap2"
+  }
+}

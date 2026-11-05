@@ -1,0 +1,305 @@
+{
+  "run_id": "20261031-ppg-dalia-rf-local",
+  "agent": "codex",
+  "task_id": "T2/T3",
+  "git_commit": "a3ea6266223a9294bcb6cb9f7fc6d02d015c7da7",
+  "started_at": "2026-10-31T06:23:25.434013+00:00",
+  "finished_at": "2026-10-31T06:24:23.866322+00:00",
+  "status": "done",
+  "command": ".venv/bin/python scripts/train_ppg.py",
+  "log_path": "logs/20261031-ppg-dalia-rf-local.log",
+  "checkpoint_path": "artifacts/ppg/",
+  "execution": {
+    "mode": "local",
+    "device": "CPU",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.15",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1"
+  },
+  "dataset": "PPG-DaLiA",
+  "dataset_path": "data/raw/PPG_FieldStudy",
+  "dataset_version": {
+    "doi": "10.24432/C53890",
+    "archive_path": "data/raw/ppg-dalia-sciebo.zip",
+    "archive_size_bytes": 2864337783,
+    "archive_sha256": "fcda4d13f6475e88a24f1ef9658627dc98e04dd5c5dd790cd2b0a1a22e31913b",
+    "readme_sha256": "018a3bab7f1d02261ad4a42720f2235ac20e1c3c0a052f02ef91208096d4fc1b",
+    "subjects": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15"
+    ],
+    "integrity": "All entries extracted successfully with zipfile CRC verification; .part files unused"
+  },
+  "config": {
+    "model": [
+      "RandomForestClassifier",
+      "RandomForestRegressor"
+    ],
+    "n_estimators": 250,
+    "min_samples_leaf": 2,
+    "quality_class_weight": "balanced_subsample",
+    "seed": 42,
+    "feature_version": "ppg-dalia-bvp-acc-v1",
+    "window_seconds": 8,
+    "label_step_seconds": 2,
+    "window_samples": 512,
+    "bvp_sampling_hz": 64,
+    "acc_sampling_hz": 32,
+    "stride": 3,
+    "effective_step_seconds": 6,
+    "max_windows_per_subject": 400,
+    "sampling_policy": "first eligible windows per subject",
+    "feature_count": 64
+  },
+  "split": {
+    "train_subjects": [
+      "S1",
+      "S10",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "val_subjects": [
+      "S11",
+      "S12"
+    ],
+    "test_subjects": [
+      "S13",
+      "S14",
+      "S15"
+    ],
+    "train_windows": 4000,
+    "val_windows": 800,
+    "test_windows": 1200,
+    "subject_windows": {
+      "S1": 400,
+      "S10": 400,
+      "S11": 400,
+      "S12": 400,
+      "S13": 400,
+      "S14": 400,
+      "S15": 400,
+      "S2": 400,
+      "S3": 400,
+      "S4": 400,
+      "S5": 400,
+      "S6": 400,
+      "S7": 400,
+      "S8": 400,
+      "S9": 400
+    }
+  },
+  "alignment_audit": {
+    "subjects": [
+      "S1",
+      "S10",
+      "S15"
+    ],
+    "windows_checked": 15,
+    "max_abs_hr_delta_bpm": 4.263256414560601e-14,
+    "offset_seconds": 0,
+    "report": "docs/ppg-alignment.md"
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/ppg/ppg_hr_rf.joblib",
+      "size_bytes": 39728785,
+      "sha256": "6349b32e381bfe5ea4f8e04d21c2038fbab5dfb2e75f3dbd35ec645066a479a9"
+    },
+    {
+      "path": "artifacts/ppg/ppg_metadata.json",
+      "size_bytes": 4493,
+      "sha256": "a41495fc8ea2bbb2bf16c925d822312cd2024410bec7710fa29b2e5e1f4be159"
+    },
+    {
+      "path": "artifacts/ppg/ppg_quality_rf.joblib",
+      "size_bytes": 16279337,
+      "sha256": "bf5cca47ef77682c8350f8b48844eeb73eb1b0d5efdc2484b652a5377783d4a8"
+    }
+  ],
+  "metrics": {
+    "quality_test": {
+      "accuracy": 0.7533333333333333,
+      "macro_f1": 0.6594765602530918,
+      "weighted_f1": 0.7515455852746621,
+      "report": {
+        "unreliable": {
+          "precision": 0.4910394265232975,
+          "recall": 0.47079037800687284,
+          "f1-score": 0.4807017543859649,
+          "support": 291.0
+        },
+        "reliable": {
+          "precision": 0.8327904451682954,
+          "recall": 0.8437843784378438,
+          "f1-score": 0.8382513661202186,
+          "support": 909.0
+        },
+        "accuracy": 0.7533333333333333,
+        "macro avg": {
+          "precision": 0.6619149358457964,
+          "recall": 0.6572873782223583,
+          "f1-score": 0.6594765602530918,
+          "support": 1200.0
+        },
+        "weighted avg": {
+          "precision": 0.7499158231468833,
+          "recall": 0.7533333333333333,
+          "f1-score": 0.7515455852746621,
+          "support": 1200.0
+        }
+      }
+    },
+    "quality_baseline_test": {
+      "accuracy": 0.7575,
+      "macro_f1": 0.4310099573257468,
+      "weighted_f1": 0.6529800853485064,
+      "report": {
+        "unreliable": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 291.0
+        },
+        "reliable": {
+          "precision": 0.7575,
+          "recall": 1.0,
+          "f1-score": 0.8620199146514936,
+          "support": 909.0
+        },
+        "accuracy": 0.7575,
+        "macro avg": {
+          "precision": 0.37875,
+          "recall": 0.5,
+          "f1-score": 0.4310099573257468,
+          "support": 1200.0
+        },
+        "weighted avg": {
+          "precision": 0.57380625,
+          "recall": 0.7575,
+          "f1-score": 0.6529800853485064,
+          "support": 1200.0
+        }
+      }
+    },
+    "hr_test": {
+      "mae": 7.760189608351478,
+      "rmse": 12.115726679015502,
+      "count": 1200
+    },
+    "hr_baseline_test": {
+      "mae": 20.792257196535406,
+      "rmse": 25.48440585107245,
+      "count": 1200
+    },
+    "quality_val": {
+      "accuracy": 0.64375,
+      "macro_f1": 0.6154566199648852,
+      "weighted_f1": 0.6360573298522039,
+      "report": {
+        "unreliable": {
+          "precision": 0.5687022900763359,
+          "recall": 0.46417445482866043,
+          "f1-score": 0.5111492281303602,
+          "support": 321.0
+        },
+        "reliable": {
+          "precision": 0.6802973977695167,
+          "recall": 0.7640918580375783,
+          "f1-score": 0.7197640117994101,
+          "support": 479.0
+        },
+        "accuracy": 0.64375,
+        "macro avg": {
+          "precision": 0.6244998439229263,
+          "recall": 0.6141331564331194,
+          "f1-score": 0.6154566199648852,
+          "support": 800.0
+        },
+        "weighted avg": {
+          "precision": 0.6355198608076279,
+          "recall": 0.64375,
+          "f1-score": 0.6360573298522039,
+          "support": 800.0
+        }
+      }
+    },
+    "hr_val": {
+      "mae": 17.180212075219448,
+      "rmse": 22.624066263331784,
+      "count": 800
+    }
+  },
+  "notes": [
+    "Research/hackathon prototype; not validated for diagnosis or alarms.",
+    "Quality target is HR agreement proxy, not medical SQI.",
+    "Defaults cover only the first ~40 minutes per subject; later activities underrepresented.",
+    "Participant-isolated split; validation participants never used for fitting.",
+    "Quality accuracy 75.33% is slightly below majority baseline 75.75%; macro F1 improves from 43.10% to 65.95%.",
+    "Unreliable-class recall is 47.08% on the test split; unsuitable as a safety alarm guarantee.",
+    "Validation HR MAE is 17.18 bpm versus test 7.76 bpm; performance varies by participant.",
+    "Existing correlation features emitted NumPy divide warnings for constant axes; existing nan_to_num converts non-finite features before model fit."
+  ],
+  "pid": 4344,
+  "training_exit_code": 0,
+  "source_tree": "b2bbc4034a9036b5b80c871ede8ac1dbfdc00dea",
+  "model_version": "ppg-dalia-rf-v0.6.0-20261031",
+  "log_sha256": "d268b09414f98a5b0dfd1cc6c90e1404b73fa465710a4992717c4f565537e2ae",
+  "artifact_load_check": {
+    "artifact_dir": "<repo>/artifacts",
+    "activity": {
+      "available": true,
+      "version": "pamap2-rf-v0.6.0-20261030",
+      "feature_version": "pamap2-wrist-acc-hr-v1",
+      "error": null
+    },
+    "ppg": {
+      "available": true,
+      "quality_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "hr_version": "ppg-dalia-rf-v0.6.0-20261031",
+      "feature_version": "ppg-dalia-bvp-acc-v1",
+      "error": null
+    },
+    "limitations": [
+      "Experimental baselines only; not clinically validated.",
+      "Models are auxiliary evidence and never override safety rules."
+    ]
+  },
+  "verification": {
+    "command": ".venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "passed": 105,
+    "warnings": 1,
+    "warning": "Existing Starlette/httpx TestClient deprecation",
+    "duration_seconds": 9.76,
+    "verified_at": "2026-10-31T06:25:10.466936+00:00",
+    "alignment_test_command": ".venv/bin/python -m pytest -q tests/test_ml_data.py",
+    "alignment_tests_passed": 10
+  },
+  "preparation": {
+    "archive_extraction": "Python zipfile extraction of all 92 entries to data/raw/; built-in CRC verified",
+    "archive_source": "data/raw/ppg-dalia-sciebo.zip",
+    "incomplete_parts_used": false,
+    "subject_pickles_found": 15
+  }
+}

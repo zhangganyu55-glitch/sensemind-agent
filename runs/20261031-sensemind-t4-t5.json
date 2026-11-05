@@ -1,0 +1,76 @@
+{
+  "run_id": "20261031-sensemind-t4-t5",
+  "agent": "codex",
+  "task_id": "T4/T5",
+  "base_commit": "b13be85",
+  "status": "done",
+  "finished_at": "2026-10-31T06:33:25.262587+00:00",
+  "execution": "local CPU, FastAPI TestClient + temporary SQLite",
+  "commands": [
+    ".venv/bin/python -u scripts/verify_ml_replay.py",
+    ".venv/bin/python -m pytest -q",
+    ".venv/bin/python scripts/verify_artifacts.py"
+  ],
+  "dataset_version_run": "20261031-ppg-dalia-rf-local",
+  "split": {
+    "test_subjects": [
+      "S13",
+      "S14",
+      "S15"
+    ],
+    "selection": "20 s sitting and 20 s walking per participant; no fitting or tuning"
+  },
+  "metrics": {
+    "replay_seconds": 120,
+    "inferences": 78,
+    "suppressed_hr": 46,
+    "tests_passed": 118,
+    "test_warnings": 2,
+    "pamap2_seconds": 12,
+    "pamap2_inferences": 7
+  },
+  "models": {
+    "activity": {
+      "available": true,
+      "version": "pamap2-rf-v0.6.0-20261030",
+      "error": null
+    },
+    "ppg_quality": {
+      "available": true,
+      "version": "ppg-dalia-rf-v0.6.0-20261031",
+      "error": null
+    },
+    "ppg_hr": {
+      "available": true,
+      "version": "ppg-dalia-rf-v0.6.0-20261031",
+      "error": null
+    }
+  },
+  "reports": [
+    {
+      "path": "docs/t4-t5-replay-results.json",
+      "sha256": "7d16e6050f8f1a0267a2d9c54508538dc118e8c6195dd2e8efcdc46987941eb2"
+    },
+    {
+      "path": "docs/t4-t5-report.md",
+      "sha256": "16be19e505170f3c7e0403d303dee1fad24df897e015726df426ab70681cbcde"
+    }
+  ],
+  "limitations": [
+    "No live external DeepSeek request; mock transport tests verify tool integration and diagnosis suppression.",
+    "In-process HTTP and HTML retrieval; no browser interaction or external network test.",
+    "HR agreement target is estimator-dependent proxy, not independent medical SQI.",
+    "Training prefix sampling underrepresents later activities; E4 cannot be sent to PAMAP2 model."
+  ],
+  "activity_replay": {
+    "device": "replay_pamap2_105",
+    "ticks": 12,
+    "analyses": 7,
+    "activities": {
+      "standing": 6,
+      "ascending_stairs": 1
+    },
+    "subject": "105",
+    "dataset": "pamap2"
+  }
+}

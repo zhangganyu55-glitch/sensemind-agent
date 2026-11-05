@@ -1,0 +1,49 @@
+{
+  "run_id": "20261031-sensemind-v07-phase1",
+  "agent": "codex",
+  "task_id": "V7",
+  "base_commit": "d172dc0c112de592d4fdf0fbf6ba972267667222",
+  "finished_at": "2026-10-31T07:06:17.452093+00:00",
+  "status": "done",
+  "commands": [
+    ".venv/bin/python scripts/audit_v07_quality.py",
+    ".venv/bin/python scripts/verify_v07_deepseek.py",
+    ".venv/bin/python -u scripts/verify_v07_stability.py",
+    ".venv/bin/python -m pytest -q",
+    ".venv/bin/python scripts/verify_artifacts.py"
+  ],
+  "dataset_version_run": "20261031-ppg-dalia-rf-local",
+  "metrics": {
+    "quality_windows": 78,
+    "hr_outputs": 32,
+    "hr_hidden": 46,
+    "output_ratio": 0.41025641025641024,
+    "wall_seconds": 603.5111045419999,
+    "stability_telemetry": 600,
+    "stability_inferences": 593,
+    "http_errors": 0,
+    "tests_passed": 127,
+    "test_warnings": 1
+  },
+  "reports": [
+    {
+      "path": "docs/v07-report.md",
+      "sha256": "e72c772c6db61be6efa45db01c47dd6a86a1803d83c80717703130183d2f10e0"
+    },
+    {
+      "path": "docs/v07-stability.json",
+      "sha256": "fdc87667fc7ad1e04395a9b4e410a1e2314f682778bb8c52daa151fa504be342"
+    },
+    {
+      "path": "docs/v07-quality.json",
+      "sha256": "2d42083064db0433d8ef74183b0bc481a48c86ba607e22f2999a19559f2ae9f8"
+    },
+    {
+      "path": "docs/v07-deepseek.json",
+      "sha256": "c2e87eace734523d7c6dab8f1e8f3bfa38267cd8f9b25cb18963f3b06f3ab192"
+    }
+  ],
+  "privacy": "Real DeepSeek tests use generated signals and fictional telemetry only; ECG comparisons stay offline.",
+  "hardware": "ESP32 contract reserved, no physical hardware acceptance.",
+  "models": "Original artifacts and SHA-256 unchanged; verify_artifacts.py passed all six items."
+}

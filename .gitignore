@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.db
+.env
+.runtime/
+data/raw/
+data/processed/
+artifacts/
+
+# 协作 / 本地
+.DS_Store
+models/
+logs/
+*.log
+.env.*
+!.env.example
+.claude/settings.local.json
